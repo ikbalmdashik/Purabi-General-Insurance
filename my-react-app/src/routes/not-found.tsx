@@ -39,7 +39,7 @@ export default function NotFound() {
         </p>
 
         {/* Button */}
-        <Button text="Back to Home" href={Routes.home} isShowIcon className="mx-auto w-1/2 p-2 mt-8" />
+        <Button goto={Routes.home} isShowIcon className="mx-auto w-1/2 p-2 mt-8">Back to Home</Button>
       </div>
     </main>
   );

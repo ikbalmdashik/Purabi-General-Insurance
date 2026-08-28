@@ -67,11 +67,10 @@ export default function Hero() {
 
             <div className="flex flex-wrap items-center gap-8 lg:gap-11">
               <Button
-                text="Discover More"
                 onClick={scrollToAbout}
                 className="px-10 py-3.5 text-xl"
               >
-
+                Discover More
               </Button>
 
               <button

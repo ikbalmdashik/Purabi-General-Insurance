@@ -1,35 +1,48 @@
-import { Link } from "react-router/internal/react-server-client";
+import type {
+  ButtonHTMLAttributes,
+  ReactNode,
+} from "react";
+import { useNavigate } from "react-router";
 
-type ButtonProps = {
-  text: string;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
   isShowIcon?: boolean;
-  href?: string;
-  onClick?: () => void;
-  className?: string;
   iconClassName?: string;
+  goto?: string;
 };
 
 export default function Button({
-  text,
+  children,
   isShowIcon = false,
-  href = "#",
-  onClick,
   className = "",
   iconClassName = "",
+  goto,
+  type = "button",
+  onClick,
+  ...props
 }: ButtonProps) {
+  const navigate = useNavigate();
+
   return (
-    <Link
-      to={href}
-      onClick={onClick}
+    <button
+      type={type}
+      onClick={(event) => {
+        onClick?.(event);
+
+        if (goto && !event.defaultPrevented) {
+          navigate(goto);
+        }
+      }}
       className={`
         group flex items-center justify-center gap-4 rounded-[5px]
         border border-orange-800 bg-orange-800
         font-['Poppins'] capitalize text-white
-        transition-colors duration-200 hover:bg-white hover:text-orange-800
+        transition-colors duration-800 hover:bg-white hover:text-orange-800
         ${className}
       `}
+      {...props}
     >
-      <span>{text}</span>
+      {children}
 
       {isShowIcon && (
         <svg
@@ -39,7 +52,7 @@ export default function Button({
           stroke="currentColor"
           strokeWidth="2"
           className={`
-            h-5 w-5 -rotate-45 transition-transform duration-200 scale-150
+            h-5 w-5 -rotate-45 scale-150 transition-transform duration-800
             group-hover:rotate-0 ${iconClassName}
           `}
         >
@@ -47,6 +60,6 @@ export default function Button({
           <path d="m13 6 6 6-6 6" />
         </svg>
       )}
-    </Link>
+    </button>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, Route } from "react-router";
 
 import chevronDown from "../assets/icons/chevron-down.svg";
 import logo from "../assets/images/logo.png";
@@ -282,17 +282,17 @@ export default function Navbar() {
           </nav>
 
           <Button
-            text="Get A Quote"
             isShowIcon
-            href={Routes.contact}
+            goto={Routes.contact}
             onClick={() => {
               setActiveItem("Contact Us");
               setOpenDropdown(null);
               setHoveredItem(null);
             }}
-            className="px-9 py-3 text-lg duration-[800ms]"
-            iconClassName="duration-[800ms]"
-          />
+            className="px-9 py-3 text-lg"
+          >
+            Get A Quote
+          </Button>
         </div>
 
         <button
@@ -448,16 +448,17 @@ export default function Navbar() {
           })}
 
           <Button
-            text="Get A Quote"
             isShowIcon
-            href={Routes.contact}
+            goto={Routes.contact}
             onClick={() => {
               setMobileMenuOpen(false);
               setOpenDropdown(null);
               setActiveItem("Contact Us");
             }}
             className="mt-5 px-8 py-3.5 text-base"
-          />
+          >
+            Get A Quote
+          </ Button>
         </nav>
       </div>
     </header>

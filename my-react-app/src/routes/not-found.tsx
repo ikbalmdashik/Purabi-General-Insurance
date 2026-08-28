@@ -1,26 +1,46 @@
-import { Link } from "react-router";
+import Button from "../components/Button";
+import { Routes } from "../routes/Routes";
 
 export default function NotFound() {
   return (
-    <section className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
-      <p className="font-['Poppins'] text-lg font-medium text-orange-800">
-        404 Error
-      </p>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-zinc-950 px-6 text-white">
+      {/* Background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/10 blur-[120px]" />
 
-      <h1 className="mt-2 font-['Poppins'] text-4xl font-bold text-black">
-        Page not found
-      </h1>
+      {/* Grid background */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+        }}
+      />
 
-      <p className="mt-4 max-w-md text-gray-600">
-        The page you are looking for does not exist or may have moved.
-      </p>
+      {/* Content */}
+      <div className="relative z-10 text-center">
+        {/* 404 */}
+        <div className="relative inline-block">
+          <h1 className="text-[140px] font-black leading-none tracking-[-0.08em] text-white sm:text-[200px]">
+            404
+          </h1>
 
-      <Link
-        to="/"
-        className="mt-6 rounded-md bg-orange-800 px-6 py-3 font-medium text-white transition-colors hover:bg-orange-700"
-      >
-        Back to Home
-      </Link>
-    </section>
+          {/* Orange line */}
+          <div className="absolute left-1/2 top-1/2 h-2 w-28 -translate-x-1/2 -translate-y-1/2 rotate-[-8deg] rounded-full bg-orange-600 sm:w-40" />
+        </div>
+
+        {/* Text */}
+        <h2 className="mt-8 text-3xl font-bold tracking-tight sm:text-4xl">
+          Page Not Found
+        </h2>
+
+        <p className="mx-auto mt-4 max-w-md text-base leading-7 text-zinc-400 sm:text-lg">
+          The page you're looking for doesn't exist or may have been moved.
+        </p>
+
+        {/* Button */}
+        <Button text="Back to Home" href={Routes.home} isShowIcon className="mx-auto w-1/2 p-2 mt-8" />
+      </div>
+    </main>
   );
 }

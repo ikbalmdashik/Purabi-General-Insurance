@@ -10,12 +10,13 @@ export default function AppRoutes() {
     return (
         <Routes>
             <Route element={<MainLayout />}>
-                <Route path="*" element={<NotFound />} />
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="blogs" element={<Blogs />} />
             </Route>
+
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }

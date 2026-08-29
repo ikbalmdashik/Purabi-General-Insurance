@@ -1,6 +1,16 @@
 import React from 'react';
 import Button from './Button';
 
+import FireInsuranceIcon from "../assets/icons/flame.png";
+import HealthInsuranceIcon from "../assets/icons/healthcare.png";
+import MotorInsuranceIcon from "../assets/icons/protection.png";
+import MarineInsuranceIcon from "../assets/icons/logistics-delivery.png";
+import TravelInsuranceIcon from "../assets/icons/travel-insurance.png";
+import EngineeringInsuranceIcon from "../assets/icons/engineering.png";
+import AviationInsuranceIcon from "../assets/icons/aviation-insurance.png";
+import MiscellaneousInsuranceIcon from "../assets/icons/belongings.png";
+import NibeditaInsuranceIcon from "../assets/icons/NibeditaInsuranceIcon.png"
+
 interface Category {
   id: string;
   title: string;
@@ -14,55 +24,55 @@ const categoriesData: Category[] = [
     id: 'fire',
     title: 'FIRE INSURANCE',
     description: 'With our Fire insurance policies, you can choose from various coverage options that protect your property, equipment,',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: FireInsuranceIcon,
   },
   {
     id: 'health',
     title: 'HEALTH INSURANCE',
     description: 'With our Health insurance policies, you can choose from various coverage options that protect your property, equipment,',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: HealthInsuranceIcon,
   },
   {
     id: 'motor',
     title: 'MOTOR INSURANCE',
     description: 'Motor Car insurance provides comprehensive protection for your vehicles, covering accidents, theft.',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: MotorInsuranceIcon,
   },
   {
     id: 'marine',
     title: 'MARINE INSURANCE',
     description: 'We offer comprehensive and flexible coverage for your vessels, protecting against physical damage,',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: MarineInsuranceIcon,
   },
   {
     id: 'travel',
     title: 'TRAVEL INSURANCE',
     description: 'Our Travel Insurance (Overseas Mediclaim Insurance) ensures comprehensive coverage for medical emergencies.',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: TravelInsuranceIcon,
   },
   {
     id: 'engineering',
     title: 'ENGINEERING INSURANCE',
     description: 'Engineering insurance refers to the insurance that provides coverage for plant and machinery.',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: EngineeringInsuranceIcon,
   },
   {
     id: 'aviation',
     title: 'AVIATION INSURANCE',
     description: 'Aviation insurance is insurance coverage geared specifically to the operation of aircraft.',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: AviationInsuranceIcon,
   },
   {
     id: 'miscellaneous',
     title: 'MISCELLANEOUS INSURANCE',
     description: 'Accidents shatter people emotionally, physically and financially, protecting against risks.',
-    iconSrc: 'https://placehold.co/95x95',
+    iconSrc: MiscellaneousInsuranceIcon,
   },
   {
     id: 'nibedita',
     title: 'NIBEDITA INSURANCE',
     description: 'A comprehensive insurance scheme for women is a one stop service.',
-    iconSrc: 'https://placehold.co/117x96',
+    iconSrc: NibeditaInsuranceIcon,
   },
 ];
 
@@ -80,7 +90,7 @@ export const Categories: React.FC = () => {
       </div>
 
       {/* Horizontal Scrollable Slider */}
-      <div className="w-full overflow-x-auto no-scrollbar py-8 pr-0 flex gap-6 scroll-smooth">
+      <div className="w-full overflow-x-auto [scrollbar-width:none] py-8 pr-0 flex gap-6 scroll-smooth">
         <div className="flex-shrink-0 w-10" aria-hidden="true" />
         {categoriesData.map((category) => (
           <div
@@ -102,26 +112,31 @@ export const Categories: React.FC = () => {
             </div>
 
             {/* Floating Overlapping Circular Action Button */}
-            <a
-              href={category.href || '#'}
-              className="absolute -bottom-7 w-14 h-14 bg-[#B43A1E] rounded-full flex items-center justify-center text-white shadow-md hover:bg-[#932e17] transition-colors"
-              aria-label={`Learn more about ${category.title}`}
+            <div
+              className="absolute bg-white -bottom-7 w-20 h-20 bg-[#B43A1E] rounded-full flex items-center justify-center text-white"
             >
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="h-5 w-5 -rotate-45 scale-125 transition-transform duration-300 group-hover:rotate-0"
+              <a
+                href={category.href || '#'}
+                className='bg-red-900 w-16 h-16 rounded-full flex items-center justify-center'
+                aria-label={`Learn more about ${category.title}`}
               >
-                <path d="M5 12h14" />
-                <path d="m13 6 6 6-6 6" />
-              </svg>
-            </a>
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="h-5 w-5 -rotate-45 scale-125 transition-transform duration-300 group-hover:rotate-0"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
           </div>
         ))}
-        {/* End Spacer: Allows the last card to scroll out to w-0 edge */}
+        {/* End Spacer: Allows the last card to scroll */}
         <div className="flex-shrink-0 w-10" aria-hidden="true" />
       </div>
 

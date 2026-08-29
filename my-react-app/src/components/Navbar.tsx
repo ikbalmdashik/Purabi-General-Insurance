@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Route } from "react-router";
+import { Link } from "react-router";
 
 import chevronDown from "../assets/icons/chevron-down.svg";
 import logo from "../assets/images/logo.png";

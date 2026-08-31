@@ -62,106 +62,104 @@ const Footer: React.FC = () => {
     ];
 
     return (
-        <div className="self-stretch h-[723px] px-20 pt-24 pb-12 bg-gradient-to-b from-orange-800/0 to-orange-800/10 inline-flex flex-col justify-between items-center">
+        <footer className="w-full px-4 sm:px-6 md:px-10 lg:px-20 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-6 sm:pb-8 md:pb-10 lg:pb-12 bg-gradient-to-b from-orange-800/0 to-orange-800/10 flex flex-col justify-between items-center min-h-[600px] sm:min-h-[650px] md:min-h-[700px] lg:h-[723px]">
             {/* Top Section */}
-            <div className="self-stretch flex flex-col justify-start items-start gap-5">
-                <div className="self-stretch flex flex-col justify-start items-center gap-5">
-                    <div className="self-stretch flex flex-col justify-start items-start">
-                        <div className="self-stretch opacity-50 text-center justify-start text-black text-base font-normal font-['Poppins']">
+            <div className="w-full flex flex-col justify-start items-center gap-4 sm:gap-5">
+                <div className="w-full flex flex-col justify-start items-center gap-3 sm:gap-4 md:gap-5">
+                    <div className="w-full flex flex-col justify-start items-center">
+                        <div className="w-full text-center text-black text-sm sm:text-base font-normal font-['Poppins'] opacity-50">
                             Are you ready?
                         </div>
-                        <div className="self-stretch text-center justify-start text-black text-5xl font-bold font-['Poppins']">
+                        <div className="w-full text-center text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-['Poppins'] leading-tight">
                             Get Your Insurance Now!
                         </div>
                     </div>
 
                     {/* Buy Now Button */}
-                    <Button isShowIcon className='py-4 px-14'>
+                    <Button isShowIcon className='py-3 px-8 sm:py-4 sm:px-10 md:px-12 lg:px-14 text-sm sm:text-base mt-1 md:m-0 lg:m-0'>
                         Buy Now
                     </Button>
                 </div>
 
-                {/* Navigation Links - Exact Navbar Style */}
-                <div className="self-stretch inline-flex justify-center items-center gap-5">
-                    <div className="flex justify-start items-center gap-[5px]">
-                        {navItems.map((item) => {
-                            const isHovered = hoveredItem === item.name;
-                            const showOrange = isHovered;
+                {/* Navigation Links - Same for Desktop and Mobile */}
+                <div className="w-full flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-5 xl:gap-6 2xl:gap-8">
+                    {navItems.map((item) => {
+                        const isHovered = hoveredItem === item.name;
+                        const showOrange = isHovered;
 
-                            return (
-                                <div
-                                    key={item.name}
-                                    className="relative"
-                                    onMouseEnter={() => setHoveredItem(item.name)}
-                                    onMouseLeave={() => setHoveredItem(null)}
+                        return (
+                            <div
+                                key={item.name}
+                                className="relative"
+                                onMouseEnter={() => setHoveredItem(item.name)}
+                                onMouseLeave={() => setHoveredItem(null)}
+                            >
+                                <Link
+                                    to={item.href}
+                                    className={`
+                                        relative flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 xl:px-5 xl:py-3.5
+                                        font-['Poppins'] text-sm sm:text-base xl:text-lg font-normal capitalize
+                                        transition-colors duration-200
+                                        ${showOrange ? "text-orange-800" : "text-black"}
+                                        after:absolute after:bottom-0 after:left-0 after:right-0
+                                        after:h-px after:bg-orange-800 after:transition-all
+                                        after:duration-200
+                                        ${showOrange
+                                            ? "after:scale-x-100 after:opacity-100"
+                                            : "after:scale-x-0 after:opacity-0"
+                                        }
+                                    `}
                                 >
-                                    <Link
-                                        to={item.href}
-                                        className={`
-                                            relative flex items-center justify-center gap-2.5 px-5 py-3.5
-                                            font-['Poppins'] text-lg font-normal capitalize
-                                            transition-colors duration-200
-                                            ${showOrange ? "text-orange-800" : "text-black"}
-                                            after:absolute after:bottom-0 after:left-0 after:right-0
-                                            after:h-px after:bg-orange-800 after:transition-all
-                                            after:duration-200
-                                            ${showOrange
-                                                ? "after:scale-x-100 after:opacity-100"
-                                                : "after:scale-x-0 after:opacity-0"
-                                            }
-                                        `}
-                                    >
-                                        <span>{item.name}</span>
+                                    <span>{item.name}</span>
 
-                                        {/* Chevron icon for Services and Claims */}
-                                        {(item.name === "Services" || item.name === "Claims") && (
-                                            <img
-                                                src={chevronDown}
-                                                alt=""
-                                                className={`
-                                                    h-6 w-6 object-contain transition-transform duration-200
-                                                    ${isHovered ? "rotate-180" : "rotate-0"}
-                                                    `}
-                                                style={
-                                                    showOrange
-                                                        ? {
-                                                            filter:
-                                                                "invert(35%) sepia(95%) saturate(1700%) hue-rotate(5deg) brightness(85%) contrast(95%)",
-                                                        }
-                                                        : undefined
-                                                }
-                                            />
-                                        )}
-                                    </Link>
-                                </div>
-                            );
-                        })}
-                    </div>
+                                    {/* Chevron icon for Services and Claims */}
+                                    {(item.name === "Services" || item.name === "Claims") && (
+                                        <img
+                                            src={chevronDown}
+                                            alt=""
+                                            className={`
+                                                h-4 w-4 sm:h-5 sm:w-5 xl:h-6 xl:w-6 object-contain transition-transform duration-200
+                                                ${isHovered ? "rotate-180" : "rotate-0"}
+                                                `}
+                                            style={
+                                                showOrange
+                                                    ? {
+                                                        filter:
+                                                            "invert(35%) sepia(95%) saturate(1700%) hue-rotate(5deg) brightness(85%) contrast(95%)",
+                                                    }
+                                                    : undefined
+                                            }
+                                        />
+                                    )}
+                                </Link>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 
             {/* Middle Section - Working Hours */}
-            <div className="flex flex-col justify-start items-center gap-7">
-                <div className="inline-flex justify-start items-center gap-2">
-                    <div className="justify-center text-black text-xl font-normal font-['Poppins'] leading-6">
+            <div className="flex flex-col justify-start items-center gap-4 sm:gap-5 md:gap-6 lg:gap-7 mt-6 sm:mt-8 lg:mt-0">
+                <div className="flex justify-center items-center">
+                    <div className="text-center text-black text-sm sm:text-base md:text-lg lg:text-xl font-normal font-['Poppins'] leading-6 px-2">
                         Sunday to Thursday : 10 AM to 6 PM
                     </div>
                 </div>
 
                 {/* Social Media Icons */}
-                <div className="flex justify-center items-center gap-4">
+                <div className="flex justify-center items-center gap-3 sm:gap-4">
                     {socialIcons.map((social) => (
                         <a
                             key={social.id}
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-8 h-8 flex items-center justify-center hover:opacity-70 transition-opacity"
+                            className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center hover:opacity-70 transition-opacity"
                         >
                             <img
                                 src={social.icon}
                                 alt={social.alt}
-                                className="w-6 h-6 object-contain brightness-0 saturate-100"
+                                className="w-5 h-5 sm:w-6 sm:h-6 object-contain brightness-0 saturate-100"
                             />
                         </a>
                     ))}
@@ -169,42 +167,42 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Payment Channels */}
-            <div className="self-stretch flex flex-col justify-start items-start gap-2.5">
-                <div className="justify-start text-neutral-700 text-xs font-normal font-['Poppins']">
+            <div className="w-full flex flex-col justify-start items-start gap-2 mt-6 sm:mt-8 lg:mt-0">
+                <div className="text-neutral-700 text-xs sm:text-sm font-normal font-['Poppins']">
                     Payment Channels
                 </div>
-                <div className="self-stretch inline-flex justify-center items-start gap-5 flex-wrap content-start">
+                <div className="w-full flex justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 flex-wrap">
                     {paymentChannels.map((channel) => (
                         <img
                             key={channel.id}
                             src={channel.icon}
                             alt={channel.alt}
-                            className="flex-1 h-12 max-w-24 min-w-24 relative rounded-[5px]"
+                            className="h-8 sm:h-10 md:h-12 max-w-16 sm:max-w-20 md:max-w-24 min-w-12 sm:min-w-16 md:min-w-20 lg:min-w-24 object-contain rounded-[5px]"
                         />
                     ))}
                 </div>
             </div>
 
             {/* Bottom Footer */}
-            <div className="self-stretch inline-flex justify-start items-start gap-12">
-                <div className="justify-start">
-                    <span className="text-neutral-700 text-base font-normal font-['Poppins']">
+            <div className="w-full flex flex-col sm:flex-row justify-start items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mt-6 sm:mt-8 lg:mt-0">
+                <div className="text-center sm:text-left">
+                    <span className="text-neutral-700 text-xs sm:text-sm md:text-base font-normal font-['Poppins']">
                         Copyright ©
                     </span>
-                    <span className="text-orange-800 text-base font-bold font-['Poppins']">
+                    <span className="text-orange-800 text-xs sm:text-sm md:text-base font-bold font-['Poppins']">
                         {" "}360D Soul Limited
                     </span>
-                    <span className="text-neutral-700 text-base font-normal font-['Poppins']">
+                    <span className="text-neutral-700 text-xs sm:text-sm md:text-base font-normal font-['Poppins']">
                         {" "}2025. All rights reserved.
                     </span>
                 </div>
-                <div className="flex-1 flex justify-end items-center gap-12">
+                <div className="flex flex-wrap justify-center sm:justify-end items-center gap-4 sm:gap-6 md:gap-8 lg:gap-12">
                     <div className="relative">
                         <Link
                             to="/terms"
                             className={`
                                 relative flex items-center justify-center
-                                font-['Poppins'] text-base font-normal capitalize
+                                font-['Poppins'] text-xs sm:text-sm md:text-base font-normal capitalize
                                 text-neutral-700 transition-colors duration-200
                                 hover:text-orange-800
                                 after:absolute after:bottom-0 after:left-0 after:right-0
@@ -222,7 +220,7 @@ const Footer: React.FC = () => {
                             to="/privacy"
                             className={`
                                 relative flex items-center justify-center
-                                font-['Poppins'] text-base font-normal capitalize
+                                font-['Poppins'] text-xs sm:text-sm md:text-base font-normal capitalize
                                 text-neutral-700 transition-colors duration-200
                                 hover:text-orange-800
                                 after:absolute after:bottom-0 after:left-0 after:right-0
@@ -240,7 +238,7 @@ const Footer: React.FC = () => {
                             to="/refund"
                             className={`
                                 relative flex items-center justify-center
-                                font-['Poppins'] text-base font-normal capitalize
+                                font-['Poppins'] text-xs sm:text-sm md:text-base font-normal capitalize
                                 text-neutral-700 transition-colors duration-200
                                 hover:text-orange-800
                                 after:absolute after:bottom-0 after:left-0 after:right-0
@@ -255,7 +253,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

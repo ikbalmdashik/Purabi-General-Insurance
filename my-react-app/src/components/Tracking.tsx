@@ -131,7 +131,7 @@ export default function Tracking() {
                 <div className="w-full md:flex-1 md:min-w-0 bg-[#FAF1ED] border border-[#EFE3DD] rounded-[24px] p-8 md:p-12 flex flex-col justify-between space-y-8">
 
                     {/* Content Heading */}
-                    <div className="flex flex-col space-y-3">
+                    <div className="flex flex-col space-y-3 text-center md:text-left">
 
                         <span className="text-neutral-700 font-bold text-xs md:text-sm tracking-wider uppercase">
                             BE HAPPY TO GET INSURANCE
@@ -141,7 +141,7 @@ export default function Tracking() {
                             Start Tracking Your Claims
                         </h2>
 
-                        <p className="text-neutral-600 text-sm md:text-base font-normal leading-relaxed pt-1">
+                        <p className="text-neutral-600 text-sm md:text-base font-normal leading-relaxed pt-1 max-w-2xl mx-auto md:mx-0">
                             Enjoy peace of mind with hassle-free insurance. Track your claims
                             effortlessly and stay informed every step of the way.
                         </p>
@@ -149,7 +149,7 @@ export default function Tracking() {
                     </div>
 
                     {/* Action Row */}
-                    <div className="flex flex-wrap items-center gap-4 md:gap-6 pt-2">
+                    <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 md:gap-6 pt-2">
 
                         <Button
                             isShowIcon
@@ -170,7 +170,7 @@ export default function Tracking() {
 
                         </div>
 
-                        <div className="text-xs md:text-sm">
+                        <div className="text-xs md:text-sm text-center md:text-left">
                             <span className="text-neutral-400 font-normal">
                                 Mail Us Anytime:{" "}
                             </span>

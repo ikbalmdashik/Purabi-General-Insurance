@@ -84,7 +84,7 @@ export const Categories: React.FC = () => {
         <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-black uppercase">
           Categories of Insurance
         </h2>
-        <p className="text-sm md:text-base text-black/70 max-w-4xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base text-black/70 max-w-4xl mx-8 leading-relaxed">
           At SIPLC, we exceed customer expectations by being available both physically and virtually on their preferred channels. As a leading general insurer in Bangladesh, we are committed to continuous development and improvement, ensuring every citizen can access insurance benefits without hindrance
         </p>
       </div>

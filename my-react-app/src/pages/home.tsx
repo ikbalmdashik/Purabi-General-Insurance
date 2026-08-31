@@ -3,6 +3,7 @@ import Links from "../components/Links";
 import Categories from "../components/Categories";
 import Tracking from "../components/Tracking";
 import Partners from "../components/Partners";
+import Footer from "../components/Footer";
 
 export default function Home() {
     return (
@@ -12,6 +13,7 @@ export default function Home() {
             <Categories />
             <Tracking />
             <Partners />
+            <Footer />
         </>
     );
 }

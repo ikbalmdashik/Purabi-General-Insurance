@@ -1,8 +1,7 @@
+import UnderConstruction from "../components/UderConstruction";
+
 export default function Contact() {
     return (
-        <div>
-            <h1>Contact Us</h1>
-            <p>Welcome to our contact page!</p>
-        </div>
+        <UnderConstruction pageTitle="Contact" progress={20}/>
     );
 }

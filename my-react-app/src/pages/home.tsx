@@ -4,6 +4,7 @@ import Categories from "../components/Categories";
 import Tracking from "../components/Tracking";
 import Partners from "../components/Partners";
 import Footer from "../components/Footer";
+import WorkingProgress from "../components/WorkingProgress";
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
             <Categories />
             <Tracking />
             <Partners />
+            <WorkingProgress />
             <Footer />
         </>
     );
